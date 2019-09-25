@@ -4,19 +4,35 @@
 		public $judul,
 			   $penulis ,
 			   $penerbit,
-			   $harga;
+			   $harga,
+			   $jumHalaman,
+			   $waktuMain,
+			   $type;
 
 		//construtor
-		public function __construct($judul ="judul", $penulis ="penulis", $penerbit ="penerbit", $harga = 0){
+		public function __construct($judul ="judul", $penulis ="penulis", $penerbit ="penerbit", $harga = 0, $jumHalaman =0, $waktuMain = 0, $type){
 			$this->judul = $judul;
 			$this->penulis = $penulis;
 			$this->penerbit = $penerbit;
 			$this->harga = $harga;
+			$this->jumHalaman = $jumHalaman;
+			$this->waktuMain = $waktuMain;
+			$this->type = $type;
 		}
 
 			   //sama seperti Ovaride
 		public function getLabel(){
 			return "$this->penulis, $this->penerbit";
+		}
+
+		public function getInfoLengkap(){
+			$str = "{$this->type} : {$this->judul} | {$this->getLabel()} (RP. {$this->harga})";	
+			if ($this->type == "KOMIK") {
+				$str .= " {$this->jumHalaman} Halaman.";
+			} else if($this->type == "GAME"){
+				$str .= " {$this->waktuMain} Jam.";
+			}
+			return $str;
 		}
 	}
 
@@ -27,20 +43,13 @@
 		}
 	}
 //instansiasi object
-	$produk1 = new Produk("Naruto", "Masaashi Kishimoto", "Shonen", 300000);
-	$produk2 = new Produk("One Piece", "Ochiri Oda", "capCom", 250000);
-	$Produk3 = new produk("Call of Duty");
+	$produk1 = new Produk("Naruto", "Masaashi Kishimoto", "Shonen", 300000, 100, 0, "KOMIK");
+	$produk2 = new Produk("One Piece", "Ochiri Oda", "capCom", 250000, 0, 50, "GAME");
+	
+	echo $produk1->getInfoLengkap();
+	echo "<br>";
+	echo $produk2->getInfoLengkap();
 
-	echo "Komik : $produk1->penulis, $produk1->penerbit ";
-	echo "<br>";
-	echo "Komik : ". $produk1->getLabel();
-	echo "<br>";
-	echo "Game : ". $produk2->getLabel();
-	echo "<br>";
-	echo "Game :". $Produk3->getLabel();
-	echo "<br>";
-
-	$infoProduk1 = new CetakInfoProduk();
-	echo $infoProduk1->cetak($produk1);
+	
 
  ?>
