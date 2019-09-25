@@ -19,6 +19,13 @@
 			return "$this->penulis, $this->penerbit";
 		}
 	}
+
+	class CetakInfoProduk{
+		public function cetak( Produk $produk){
+			$str = "{$produk->judul}| {$produk->getLabel()} (Rp. {$produk->harga})";
+			return $str;
+		}
+	}
 //instansiasi object
 	$produk1 = new Produk("Naruto", "Masaashi Kishimoto", "Shonen", 300000);
 	$produk2 = new Produk("One Piece", "Ochiri Oda", "capCom", 250000);
@@ -31,5 +38,9 @@
 	echo "Game : ". $produk2->getLabel();
 	echo "<br>";
 	echo "Game :". $Produk3->getLabel();
+	echo "<br>";
+
+	$infoProduk1 = new CetakInfoProduk();
+	echo $infoProduk1->cetak($produk1);
 
  ?>
