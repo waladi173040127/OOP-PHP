@@ -24,7 +24,7 @@
 		public function getLabel(){
 			return "$this->penulis, $this->penerbit";
 		}
-
+		//method
 		public function getInfoLengkap(){
 			$str = "{$this->type} : {$this->judul} | {$this->getLabel()} (RP. {$this->harga})";	
 			if ($this->type == "KOMIK") {
@@ -36,6 +36,7 @@
 		}
 	}
 
+//kelas baru
 	class CetakInfoProduk{
 		public function cetak( Produk $produk){
 			$str = "{$produk->judul}| {$produk->getLabel()} (Rp. {$produk->harga})";
@@ -46,6 +47,8 @@
 	$produk1 = new Produk("Naruto", "Masaashi Kishimoto", "Shonen", 300000, 100, 0, "KOMIK");
 	$produk2 = new Produk("One Piece", "Ochiri Oda", "capCom", 250000, 0, 50, "GAME");
 	
+
+	//Menampilakan data
 	echo $produk1->getInfoLengkap();
 	echo "<br>";
 	echo $produk2->getInfoLengkap();
