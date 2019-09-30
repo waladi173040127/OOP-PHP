@@ -1,4 +1,5 @@
 <?php 
+//#3
 //class
 	class Produk {
 		public $judul = "judul",

@@ -1,5 +1,5 @@
 <?php 
-//class
+//class #6
 	class Produk {
 		public $judul,
 			   $penulis ,

@@ -25,7 +25,7 @@
 		}
 		//method
 		public function getInfoProduk(){
-			$str = "{$this->type} : {$this->judul} | {$this->getLabel()} (RP. {$this->harga})";	
+			$str = "{$this->judul} | {$this->getLabel()} (RP. {$this->harga})";	
 			return $str;
 		}
 	}
@@ -33,13 +33,13 @@
 //kelas baru
 	class Komik extends Produk{
 		public function getInfoProduk(){
-			$str = "Komik : {$this->judul} | {$this->getLabel()} (RP. {$this->harga})- {$this->jumHalaman} Halaman.";
+			$str = "Komik : ". parent::getInfoProduk() . "- {$this->jumHalaman} Halaman.";
 			return $str;	
 		}
 	}
 	class Game extends Produk{
 			public function getInfoProduk(){
-			$str = "Game : {$this->judul} | {$this->getLabel()} (RP. {$this->harga})~
+			$str = "Game :". parent::getInfoProduk()." ~ (RP. {$this->harga})~
 		 {$this->waktuMain} Jam.";
 			return $str;
 		}
