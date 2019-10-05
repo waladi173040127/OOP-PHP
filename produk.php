@@ -1,6 +1,7 @@
 <?php 
 //#3
 //class
+//Waladi widarno
 	class Produk {
 		public $judul = "judul",
 			   $penulis = "penulis",
